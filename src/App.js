@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Loading from './components/Loading';
 
-function App() {
+const App = () => {
+  const [file, setFile] = useState(null);
+
+  const handleChange = (e) => {
+    const forUpload = e.target.files[0];
+    if (forUpload) {
+      setFile(forUpload);
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h2>File uploader</h2>
+      <form>
+        <label>
+          <input type='file' onChange={handleChange} />
+        </label>
+        <button style={{ display: 'block' }}>Submit</button>
+      </form>
+      {file && <Loading file={file} setFile={setFile} />}
     </div>
   );
-}
+};
 
 export default App;
