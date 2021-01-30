@@ -8,22 +8,23 @@ const useStorage = (file) => {
   const [url, setUrl] = useState(null);
 
   useEffect(() => {
-    const storageRef = projectStorage.ref(file.name);
+    const storageRef = file && projectStorage.ref(file.name);
 
-    storageRef.put(file).on(
-      'state_changed',
-      (snap) => {
-        let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
-        setProgress(percentage);
-      },
-      (err) => {
-        setError(err);
-      },
-      async () => {
-        const url = await storageRef.getDownloadURL();
-        setUrl(url);
-      }
-    );
+    file &&
+      storageRef.put(file).on(
+        'state_changed',
+        (snap) => {
+          let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
+          setProgress(percentage);
+        },
+        (err) => {
+          setError(err);
+        },
+        async () => {
+          const url = await storageRef.getDownloadURL();
+          setUrl(url);
+        }
+      );
   }, [file]);
 
   // here are the values exported when this hook is called

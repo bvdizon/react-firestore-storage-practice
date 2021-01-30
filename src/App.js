@@ -1,26 +1,14 @@
-import React, { useState } from 'react';
-import Loading from './components/Loading';
+import React from 'react';
+import AddForm from './components/AddForm';
+import './App.css';
+import Gallery from './components/Gallery';
 
 const App = () => {
-  const [file, setFile] = useState(null);
-
-  const handleChange = (e) => {
-    const forUpload = e.target.files[0];
-    if (forUpload) {
-      setFile(forUpload);
-    }
-  };
-
   return (
     <div>
-      <h2>File uploader</h2>
-      <form>
-        <label>
-          <input type='file' onChange={handleChange} />
-        </label>
-        <button style={{ display: 'block' }}>Submit</button>
-      </form>
-      {file && <Loading file={file} setFile={setFile} />}
+      <h1>from App component</h1>
+      <AddForm />
+      <Gallery />
     </div>
   );
 };
