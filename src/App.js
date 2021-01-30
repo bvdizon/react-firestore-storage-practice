@@ -6,7 +6,6 @@ import Gallery from './components/Gallery';
 const App = () => {
   return (
     <div>
-      <h1>from App component</h1>
       <AddForm />
       <Gallery />
     </div>

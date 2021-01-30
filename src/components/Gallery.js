@@ -10,19 +10,21 @@ const Gallery = () => {
   }
 
   return (
-    <div>
-      {images &&
-        images.map((img) => {
-          const { name, title, url } = img;
-          return (
-            <div>
-              <img src={url} alt='' />
-              <h3>
-                {title} by {name}
-              </h3>
-            </div>
-          );
-        })}
+    <div className='gallery'>
+      <div>
+        {images &&
+          images.map((img) => {
+            const { name, title, url } = img;
+            return (
+              <div key={url}>
+                <img src={url} alt='' />
+                <h3>
+                  {title} by {name}
+                </h3>
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 };

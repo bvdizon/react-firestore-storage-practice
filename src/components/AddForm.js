@@ -31,8 +31,8 @@ const AddForm = () => {
   };
 
   return (
-    <div>
-      <h3>Form</h3>
+    <div className='form-container'>
+      <h3>Add your best capture!</h3>
 
       <form onSubmit={handleSubmit}>
         <input

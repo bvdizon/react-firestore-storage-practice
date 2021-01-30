@@ -2,3 +2,51 @@ form input {
   display: block;
   margin: 10px 0;
 }
+
+.gallery {
+  display: grid;
+  grid-template-columns: 10% auto 10%;
+}
+
+.gallery > div {
+  grid-column: 2 / 3;
+}
+
+.gallery img {
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .gallery > div {
+    grid-column: 2 / 3;
+
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* FORM */
+.form-container {
+  text-align: center;
+  margin: 30px 50px;
+}
+
+form input {
+  width: 80%;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+form input[type='file'] {
+  width: 80%;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+input#file-upload-button,
+button {
+  padding: 10px;
+}
