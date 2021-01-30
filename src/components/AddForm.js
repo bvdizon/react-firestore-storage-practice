@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { projectFirestore, timestamp } from '../config/config';
-import useFirestore from '../hooks/useFirestore';
 import useStorage from '../hooks/useStorage';
 
 const AddForm = () => {
@@ -12,7 +11,6 @@ const AddForm = () => {
 
   const handleChangeFile = (e) => {
     setPhoto(e.target.files[0]);
-    console.log(photo);
   };
 
   const handleSubmit = (e) => {
@@ -30,7 +28,6 @@ const AddForm = () => {
       setTitle('');
       setPhoto(null);
     }
-    console.log(name, title, url);
   };
 
   return (
